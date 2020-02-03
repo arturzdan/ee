@@ -1,0 +1,14 @@
+<Context>
+    <Parameter name="AppName" value="cbr-clm"/>
+    <Resource name="jdbc/flowerShopDS" auth="Container"
+              type="javax.sql.DataSource" driverClassName="org.h2.Driver"
+              url="jdbc:h2:C:\Users\artur.zdanovskiy\Desktop\javaEE\src\main\webapp\bd_flowershop"
+              username="flower" password="shop"
+              maxTotal="10" maxIdle="3"
+              initialSize="1"
+              removeAbandonedOnBorrow="true"
+              removeAbandonedTimeout="30"
+              testWhileIdle="true"
+              validationQuery="Select 1 From dual"
+              maxWaitMillis="-1"/>
+</Context>

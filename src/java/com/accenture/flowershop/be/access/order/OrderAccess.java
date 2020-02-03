@@ -1,7 +1,5 @@
-package com.accenture.flowershop.be.access.order;
-
-import com.accenture.flowershop.be.entity.order.Order;
-import com.accenture.flowershop.be.entity.user.User;
+package java.com.accenture.flowershop.be.access.order;
+import java.com.accenture.flowershop.be.entity.order.Order;
 
 import javax.transaction.Transactional;
 import java.util.List;

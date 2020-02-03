@@ -1,7 +1,7 @@
-package com.accenture.flowershop.fe.servlets;
+package java.com.accenture.flowershop.fe.servlets;
 
-import com.accenture.flowershop.be.business.user.UserBusiness;
-import com.accenture.flowershop.be.entity.user.User;
+import java.com.accenture.flowershop.be.business.user.UserBusiness;
+import java.com.accenture.flowershop.be.entity.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 

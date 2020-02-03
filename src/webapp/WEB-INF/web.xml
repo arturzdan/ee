@@ -4,7 +4,7 @@
 <web-app>
       <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:/config/application-context.xml</param-value>
+        <param-value>C:\Users\artur.zdanovskiy\Desktop\ee\src\resources\config\application-context.xml</param-value>
       </context-param>
 
       <listener>

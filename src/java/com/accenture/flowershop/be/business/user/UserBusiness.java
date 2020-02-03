@@ -1,7 +1,6 @@
-package com.accenture.flowershop.be.business.user;
+package java.com.accenture.flowershop.be.business.user;
 
-import com.accenture.flowershop.be.entity.user.User;
-import org.springframework.stereotype.Service;
+import java.com.accenture.flowershop.be.entity.user.User;
 
 public interface UserBusiness {
     User login(String login, String password);

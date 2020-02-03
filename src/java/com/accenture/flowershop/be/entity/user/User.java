@@ -1,4 +1,4 @@
-package com.accenture.flowershop.be.entity.user;
+package java.com.accenture.flowershop.be.entity.user;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

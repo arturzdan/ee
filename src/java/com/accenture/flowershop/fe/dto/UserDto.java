@@ -1,4 +1,4 @@
-package com.accenture.flowershop.fe.dto;
+package java.com.accenture.flowershop.fe.dto;
 
 public class UserDto {
     public UserDto() {}

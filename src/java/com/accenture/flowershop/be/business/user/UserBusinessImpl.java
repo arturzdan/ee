@@ -1,9 +1,9 @@
-package com.accenture.flowershop.be.business.user;
+package java.com.accenture.flowershop.be.business.user;
 
-import com.accenture.flowershop.be.access.user.UserAccess;
-import com.accenture.flowershop.be.entity.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.com.accenture.flowershop.be.access.user.UserAccess;
+import java.com.accenture.flowershop.be.entity.user.User;
 
 @Service
 public class UserBusinessImpl implements UserBusiness {

@@ -1,4 +1,4 @@
-package com.accenture.flowershop.be.entity.order;
+package java.com.accenture.flowershop.be.entity.order;
 
 public interface Order {
 }

@@ -1,11 +1,11 @@
-package com.accenture.flowershop.be.access.user;
+package java.com.accenture.flowershop.be.access.user;
 
-import com.accenture.flowershop.be.entity.user.User;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import java.com.accenture.flowershop.be.entity.user.User;
 import java.util.List;
 
 @Service

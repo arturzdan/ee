@@ -4,14 +4,13 @@
 <web-app>
       <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>C:\Users\artur.zdanovskiy\Desktop\ee\src\resources\config\application-context.xml</param-value>
+        <param-value>classpath:/config/application-context.xml</param-value>
       </context-param>
-
-      <listener>
-        <listener-class>
-          org.springframework.web.context.ContextLoaderListener
-        </listener-class>
-      </listener>
+<listener>
+    <listener-class>
+        org.springframework.web.context.ContextLoaderListener
+    </listener-class>
+</listener>
 <!--
     <servlet>
         <servlet-name>LoginServlet</servlet-name>

@@ -46,6 +46,10 @@ public class UserAccessImpl implements UserAccess {
         query = entity.createQuery("select e from User e where e.login =:LOGIN" , User.class);
         query.setParameter("LOGIN", login);
         User user = query.getSingleResult();
+        if(!user.getLogin().equals(login))
+            return false;
+        if (!user.getPassword().equals(password))
+            return false;
         return true;
     }
 

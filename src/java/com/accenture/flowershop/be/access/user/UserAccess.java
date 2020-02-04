@@ -7,7 +7,7 @@ public interface UserAccess {
 
     void addUser(User user);
 
-    void deleteUser(User user);
+    void removeUser(User user);
 
     void updateUser(User user);
 
@@ -15,5 +15,5 @@ public interface UserAccess {
 
     boolean isValid(String login, String password);
 
-    List<User> getUserList();
+    List<User> getAllUser();
 }

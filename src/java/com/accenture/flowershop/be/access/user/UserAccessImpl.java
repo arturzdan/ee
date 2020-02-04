@@ -21,21 +21,21 @@ public class UserAccessImpl implements UserAccess {
     }
 
     @Override
-    public void deleteUser(User user) {
+    public void removeUser(User user) {
         entity.remove(user);
         entity.flush();
     }
 
     @Override
     public void updateUser(User user) {
-        entity.merge(user);
+        entity.merge(user); //Найдёт прикрепленный объект с тем же идентификатором и обновите его.
         entity.flush();
     }
 
     @Override
     public User getUser(String login) {
         TypedQuery<User> query;
-        query = entity.createQuery("select e from User e where e.login =:LOGIN" , User.class);
+        query = entity.createQuery("select e from tb_user e where e.login =:LOGIN" , User.class);
         query.setParameter("LOGIN", login);
         return query.getSingleResult();
     }
@@ -43,7 +43,7 @@ public class UserAccessImpl implements UserAccess {
     @Override
     public boolean isValid(String login, String password) {
         TypedQuery<User> query;
-        query = entity.createQuery("select e from User e where e.login =:LOGIN" , User.class);
+        query = entity.createQuery("select e from tb_user e where e.login =:LOGIN" , User.class);
         query.setParameter("LOGIN", login);
         User user = query.getSingleResult();
         if(!user.getLogin().equals(login))
@@ -54,9 +54,9 @@ public class UserAccessImpl implements UserAccess {
     }
 
     @Override
-    public List<User> getUserList() {
+    public List<User> getAllUser() {
         TypedQuery<User> query;
-        query = entity.createQuery("select e from User e" , User.class);
+        query = entity.createQuery("select e from tb_user e" , User.class);
         return query.getResultList();
     }
 

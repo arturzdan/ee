@@ -1,7 +1,28 @@
 package java.com.accenture.flowershop.fe.dto;
 
+import java.com.accenture.flowershop.be.entity.user.User;
+
 public class UserDto {
-    public UserDto() {}
+
+    private Long id;
+    private String login;
+    private String password;
+
+    UserDto adapter(User user)
+    {
+        this.id = user.getId();
+        this.login = user.getLogin();
+        this.password = user.getPassword();
+        return this;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getLogin() {
         return login;
@@ -19,7 +40,5 @@ public class UserDto {
         this.password = password;
     }
 
-    private String login;
-    private String password;
 
 }

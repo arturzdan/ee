@@ -1,4 +1,4 @@
-package java.com.accenture.flowershop.be.entity.user;
+package com.accenture.flowershop.be.entity.user;
 
 import javax.persistence.*;
 

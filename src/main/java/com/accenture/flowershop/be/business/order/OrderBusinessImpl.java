@@ -1,11 +1,13 @@
-package java.com.accenture.flowershop.be.business.order;
+package com.accenture.flowershop.be.business.order;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.com.accenture.flowershop.be.access.order.OrderAccess;
-import java.com.accenture.flowershop.be.entity.order.Order;
+import com.accenture.flowershop.be.access.order.OrderAccess;
+import com.accenture.flowershop.be.entity.order.Order;
+
 import java.util.List;
+
 
 @Service
 public class OrderBusinessImpl implements OrderBusiness {

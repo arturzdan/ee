@@ -1,6 +1,6 @@
-package java.com.accenture.flowershop.be.business.order;
+package com.accenture.flowershop.be.business.order;
 
-import java.com.accenture.flowershop.be.entity.order.Order;
+import com.accenture.flowershop.be.entity.order.Order;
 import java.util.List;
 
 public interface OrderBusiness {

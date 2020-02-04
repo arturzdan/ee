@@ -1,6 +1,6 @@
-package java.com.accenture.flowershop.be.business.user;
+package com.accenture.flowershop.be.business.user;
 
-import java.com.accenture.flowershop.be.entity.user.User;
+import com.accenture.flowershop.be.entity.user.User;
 
 public interface UserBusiness {
     User login(String login, String password);

@@ -1,6 +1,6 @@
-package java.com.accenture.flowershop.fe.dto;
+package com.accenture.flowershop.fe.dto;
 
-import java.com.accenture.flowershop.be.entity.user.User;
+import com.accenture.flowershop.be.entity.user.User;
 
 public class UserDto {
 

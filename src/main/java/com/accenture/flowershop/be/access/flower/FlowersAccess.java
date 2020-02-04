@@ -1,6 +1,6 @@
-package java.com.accenture.flowershop.be.access.flower;
+package com.accenture.flowershop.be.access.flower;
 
-import java.com.accenture.flowershop.be.entity.flower.Flowers;
+import com.accenture.flowershop.be.entity.flower.Flowers;
 import java.util.List;
 
 interface FlowersAccess {

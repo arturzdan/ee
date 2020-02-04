@@ -1,11 +1,11 @@
-package java.com.accenture.flowershop.be.access.order;
+package com.accenture.flowershop.be.access.order;
 
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import java.com.accenture.flowershop.be.entity.order.Order;
+import com.accenture.flowershop.be.entity.order.Order;
 
 import java.util.List;
 

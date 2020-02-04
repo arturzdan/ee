@@ -1,8 +1,8 @@
-package java.com.accenture.flowershop.fe.dto;
+package com.accenture.flowershop.fe.dto;
 
-import java.com.accenture.flowershop.be.entity.flower.Flowers;
-import java.com.accenture.flowershop.be.entity.order.Order;
-import java.com.accenture.flowershop.be.entity.user.User;
+import com.accenture.flowershop.be.entity.flower.Flowers;
+import com.accenture.flowershop.be.entity.order.Order;
+import com.accenture.flowershop.be.entity.user.User;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -16,8 +16,8 @@ public class OrderDto {
     OrderDto adapter(Order order)
     {
         this.id = order.getId();
-        this.user = order.getUser();
-        this.flowers = order.getFlowers();
+        //this.user = order.getUser();
+        //this.flowers = order.getFlowers();
         this.value = order.getValue();
         return this;
     }

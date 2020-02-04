@@ -1,4 +1,4 @@
-package java.com.accenture.flowershop.fe.servlets;
+package com.accenture.flowershop.fe.servlets;
 
 public class FlowersServlet {
 }

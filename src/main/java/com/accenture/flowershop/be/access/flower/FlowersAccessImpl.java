@@ -1,11 +1,11 @@
-package java.com.accenture.flowershop.be.access.flower;
+package com.accenture.flowershop.be.access.flower;
 
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import java.com.accenture.flowershop.be.entity.flower.Flowers;
+import com.accenture.flowershop.be.entity.flower.Flowers;
 import java.util.List;
 
 @Repository

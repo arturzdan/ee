@@ -1,6 +1,6 @@
-package java.com.accenture.flowershop.be.access.user;
+package com.accenture.flowershop.be.access.user;
 
-import java.com.accenture.flowershop.be.entity.user.User;
+import com.accenture.flowershop.be.entity.user.User;
 import java.util.List;
 
 public interface UserAccess {

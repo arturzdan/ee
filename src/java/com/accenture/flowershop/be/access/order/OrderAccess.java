@@ -8,9 +8,9 @@ public interface OrderAccess {
 
     void addOrder(Order order);
 
-    void deleteOrder(Long id);
+    void removeOrder(Order order);
 
-    void updateOrder(Order order);
+    void updateOrder(Order order );
 
     Order getOrder(Long id);
 

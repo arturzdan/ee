@@ -13,7 +13,5 @@ public interface UserAccess {
 
     User getUser(String login);
 
-    boolean isValid(String login, String password);
-
     List<User> getAllUser();
 }

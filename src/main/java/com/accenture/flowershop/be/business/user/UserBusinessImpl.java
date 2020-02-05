@@ -15,9 +15,12 @@ public class UserBusinessImpl implements UserBusiness {
 
     @Override
     public User login(String login, String password) {
-        if (userAccess.isValid(login, password) == true)
-            return userAccess.getUser(login);
-        return null;
+        User user = userAccess.getUser(login);
+        if (user == null)
+            return null;
+        if (!user.getPassword().equals(password))
+            return null;
+        return user;
     }
 
     @Override

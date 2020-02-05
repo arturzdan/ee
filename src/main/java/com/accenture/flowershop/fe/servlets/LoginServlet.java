@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 @Service
 @WebServlet(urlPatterns = "/login")
@@ -42,9 +43,7 @@ public class LoginServlet extends HttpServlet {
         } else {
             out.println("No");
         }
-        int size = -2;
-        size = userBusiness.getAllUser().size();
-        out.println(size);
+
     }
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -38,15 +38,19 @@ public class LoginServlet extends HttpServlet {
 
         User user = userBusiness.login(name, pass);
         if ((user == null)) {
-            out.println("Yes");
+            out.println("Yes" );
         } else {
             out.println("No");
         }
+        int size = -2;
+        size = userBusiness.getAllUser().size();
+        out.println(size);
     }
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
+        super.doGet(request, response);
     }
 
 }

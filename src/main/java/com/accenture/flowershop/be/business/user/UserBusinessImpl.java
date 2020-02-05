@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import com.accenture.flowershop.be.access.user.UserAccess;
 import com.accenture.flowershop.be.entity.user.User;
 
+import java.util.List;
+
 @Service
 public class UserBusinessImpl implements UserBusiness {
 
@@ -22,5 +24,10 @@ public class UserBusinessImpl implements UserBusiness {
     public User register(User user) {
         userAccess.addUser(user);
         return user;
+    }
+
+    @Override
+    public List<User> getAllUser() {
+        return userAccess.getAllUser();
     }
 }

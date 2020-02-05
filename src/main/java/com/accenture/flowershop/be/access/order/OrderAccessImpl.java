@@ -5,10 +5,13 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
+
 import com.accenture.flowershop.be.entity.order.Order;
 
 import java.util.List;
 
+@Transactional
 @Repository
 public class OrderAccessImpl implements OrderAccess {
 

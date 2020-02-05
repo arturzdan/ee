@@ -3,10 +3,10 @@ package com.accenture.flowershop.be.entity.user;
 import javax.persistence.*;
 
 @Entity(name = "User")
-@Table(name = "tb_user")
+@Table(name = "TB_USER")
 public class User {
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "ID")
     private Long id;
 

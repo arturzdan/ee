@@ -2,6 +2,7 @@ package com.accenture.flowershop.fe.servlets;
 
 import com.accenture.flowershop.be.business.user.UserBusiness;
 import com.accenture.flowershop.be.entity.user.User;
+import com.accenture.flowershop.fe.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
@@ -12,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -39,9 +41,11 @@ public class LoginServlet extends HttpServlet {
 
         User user = userBusiness.login(name, pass);
         if ((user == null)) {
-            out.println("Yes" );
+            out.println("Invalid username or password!" );
         } else {
-            out.println("No");
+            HttpSession httpSession = request.getSession();
+            //httpSession.setAttribute("userAttribute",userDto.getLogin());
+            response.sendRedirect("home");;
         }
 
     }

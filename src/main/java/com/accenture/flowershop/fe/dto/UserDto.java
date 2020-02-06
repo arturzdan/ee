@@ -8,7 +8,7 @@ public class UserDto {
     private String login;
     private String password;
 
-    UserDto adapter(User user)
+    public UserDto adapter(User user)
     {
         this.id = user.getId();
         this.login = user.getLogin();

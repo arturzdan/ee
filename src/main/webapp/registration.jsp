@@ -10,20 +10,20 @@
     <body>
         <form action="register" method="post">
         <p style = "margin-left: 35px; font-size: 35px">Create account</p>
-        <label for="name">Last name </label>
+        <label for="last_name">Last name </label>
         <input type="text" name="last_name" required>
         <p>
-        <label for="name">First name </label>
+        <label for="first_name">First name </label>
         <input type="text" name="first_name" required>
         <p>
-        <label for="name">Middle name </label>
+        <label for="middle_name">Middle name </label>
         <input type="text" name="middle_name" required>
         <p>
         <label for="address">Address</label>
         <input type="text" name="address" required>
         <p>
-        <label for="name">Mobile</label>
-        <input type="tel" name="mobile" required>
+        <label for="mobile">Mobile</label>
+        <input type="text" name="mobile" required>
         <p>
         <label for="name">Login</label>
         <input type="text" name="login" required>

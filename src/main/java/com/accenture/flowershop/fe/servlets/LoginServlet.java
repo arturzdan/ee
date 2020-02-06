@@ -3,6 +3,7 @@ package com.accenture.flowershop.fe.servlets;
 import com.accenture.flowershop.be.business.user.UserBusiness;
 import com.accenture.flowershop.be.entity.user.User;
 import com.accenture.flowershop.fe.dto.UserDto;
+import com.accenture.flowershop.fe.enums.UserType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
@@ -45,7 +46,12 @@ public class LoginServlet extends HttpServlet {
         } else {
             HttpSession httpSession = request.getSession();
             //httpSession.setAttribute("userAttribute",userDto.getLogin());
-            response.sendRedirect("home");;
+
+            UserType userType = UserType.USER;
+            if(userType.toString().equals(user.getType()))
+                response.sendRedirect("homeUser");
+            else
+                response.sendRedirect("homeAdmin");
         }
 
     }

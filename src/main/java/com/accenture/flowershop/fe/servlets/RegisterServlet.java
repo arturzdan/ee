@@ -2,6 +2,7 @@ package com.accenture.flowershop.fe.servlets;
 
 import com.accenture.flowershop.be.business.user.UserBusiness;
 import com.accenture.flowershop.be.entity.user.User;
+import com.accenture.flowershop.fe.enums.UserType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 @WebServlet(urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
@@ -27,10 +29,19 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("login");
-        String pass = req.getParameter("password");
-        User user = new User(name, pass);
+        User user = new User();
+        user.setType(UserType.USER.toString());
+        user.setLastName(req.getParameter("last_name"));
+        user.setFirstName(req.getParameter("first_name"));
+        user.setMiddleName(req.getParameter("middle_name"));
+        user.setAddress(req.getParameter("address"));
+        user.setMobile(req.getParameter("mobile"));
+        user.setMoney(BigDecimal.valueOf(2000.0));
+        user.setDiscount(3);
+        user.setLogin(req.getParameter("login"));
+        user.setPassword(req.getParameter("password"));
         userBusiness.register(user);
+
     }
 
     @Override

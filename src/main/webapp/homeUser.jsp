@@ -8,6 +8,7 @@
    }
    </style>
     <body>
+    User
         <a href="index.jsp">Catalog</a>
         <a href="index.jsp">Cart</a>
          <div>

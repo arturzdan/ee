@@ -3,7 +3,7 @@ package com.accenture.flowershop.be.access.flower;
 import com.accenture.flowershop.be.entity.flower.Flowers;
 import java.util.List;
 
-interface FlowersAccess {
+public interface FlowersAccess {
 
     void addFlowers(Flowers flowers);
 

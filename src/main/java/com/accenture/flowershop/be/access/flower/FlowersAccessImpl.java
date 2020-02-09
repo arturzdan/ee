@@ -45,8 +45,7 @@ public class FlowersAccessImpl implements FlowersAccess {
 
     @Override
     public List<Flowers> getAllFlowers() {
-        TypedQuery<Flowers> query;
-        query = entity.createQuery("select e from tb_flowers e", Flowers.class);
-        return (List<Flowers>) query.getSingleResult();
+        List<Flowers> flowersList =  entity.createQuery("SELECT e FROM Flowers e").getResultList();
+    return flowersList;
     }
 }

@@ -8,7 +8,8 @@ import java.math.BigDecimal;
 public class Flowers {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY, generator = "sequenceId")
+    @SequenceGenerator(name = "sequenceId", sequenceName = "flower_sg", allocationSize = 1)
     @Column(name = "ID")
     private Long id;
 
@@ -21,10 +22,7 @@ public class Flowers {
     @Column(name = "VALUE")
     private BigDecimal value;
 
-    public Flowers(String name, int count, BigDecimal value) {
-        this.name = name;
-        this.count = count;
-        this.value = value;
+    public Flowers() {
     }
 
     public Long getId() {

@@ -41,7 +41,6 @@ public class RegisterServlet extends HttpServlet {
         user.setLogin(req.getParameter("login"));
         user.setPassword(req.getParameter("password"));
         userBusiness.register(user);
-
     }
 
     @Override

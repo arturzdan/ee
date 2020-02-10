@@ -1,0 +1,1 @@
+insert into TB_USER values (USER_SG.nextval, 'ADMIN', 'admin', 'admin', '-', '-', '-', '-', 0, 0,'-');

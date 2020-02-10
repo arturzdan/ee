@@ -4182,3 +4182,6 @@ insert into "FLOWERS" values (FLOWER_SG.nextval, 'Cactus', 1000, 50) [42102-199]
 2020-02-07 15:56:33 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FLOWERS" not found; SQL statement:
 insert into "FLOWERS" values (FLOWER_SG.nextval, 'Aloe', 1000, 50) [42102-199]
+2020-02-10 10:00:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO TB_USER VALUES (USER_SG..[*]NEXTVAL, 'ADMIN', 'admin','admin','-','-','-','-',0,0,'-') "; expected "identifier"; SQL statement:
+insert into TB_USER values (USER_SG..nextval, 'ADMIN', 'admin','admin','-','-','-','-',0,0,'-') [42001-199]

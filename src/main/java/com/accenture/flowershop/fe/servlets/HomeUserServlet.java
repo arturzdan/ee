@@ -43,14 +43,6 @@ public class HomeUserServlet extends HttpServlet {
         }
         req.setAttribute("flowersList", flowersDtoList);
         req.getRequestDispatcher("/homeUser.jsp").forward(req, resp);
-        List<FlowerDto> flowerDtoList = (List<FlowerDto>)req.getAttribute("flowersList");
-        for (FlowerDto it: flowerDtoList
-             ) {
-            it.getName();
-            it.getCount();
-            it.getValue();
-
-        }
     }
 
     @Override

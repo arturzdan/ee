@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 
 @WebServlet(urlPatterns = "/register")
@@ -30,6 +31,7 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = new User();
+        PrintWriter out = resp.getWriter();
         user.setType(UserType.USER.toString());
         user.setLastName(req.getParameter("last_name"));
         user.setFirstName(req.getParameter("first_name"));
@@ -41,6 +43,8 @@ public class RegisterServlet extends HttpServlet {
         user.setLogin(req.getParameter("login"));
         user.setPassword(req.getParameter("password"));
         userBusiness.register(user);
+        out.println("Registration is complete!" );
+
     }
 
     @Override

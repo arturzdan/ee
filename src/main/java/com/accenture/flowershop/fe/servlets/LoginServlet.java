@@ -45,9 +45,14 @@ public class LoginServlet extends HttpServlet {
             out.println("Invalid username or password!" );
         } else {
             UserType userType = UserType.USER;
-            if(userType.toString().equals(user.getType()))
+            if(userType.toString().equals(user.getType())) {
+                UserDto userDto = new UserDto();
+                userDto.adapter(user);
+                HttpSession session = request.getSession();
+                session.setAttribute("userDto",userDto);
                 response.sendRedirect("homeUser");
-            else
+
+            }else
                 response.sendRedirect("homeAdmin");
         }
 

@@ -1,3 +1,0 @@
-2020-02-10 09:34:36 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TB_USER" not found; SQL statement:
-select user0_.ID as ID1_2_, user0_.ADDRESS as ADDRESS2_2_, user0_.DISCOUNT as DISCOUNT3_2_, user0_.FIRST_NAME as FIRST_NA4_2_, user0_.LAST_NAME as LAST_NAM5_2_, user0_.LOGIN as LOGIN6_2_, user0_.MIDDLE_NAME as MIDDLE_N7_2_, user0_.MOBILE as MOBILE8_2_, user0_.MONEY as MONEY9_2_, user0_.PASSWORD as PASSWOR10_2_, user0_.TYPE as TYPE11_2_ from TB_USER user0_ where user0_.LOGIN=? [42102-200]

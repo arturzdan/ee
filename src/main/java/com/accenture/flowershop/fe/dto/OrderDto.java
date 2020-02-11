@@ -1,26 +1,19 @@
 package com.accenture.flowershop.fe.dto;
 
-import com.accenture.flowershop.be.entity.flower.Flowers;
-import com.accenture.flowershop.be.entity.order.Order;
-import com.accenture.flowershop.be.entity.user.User;
+import com.accenture.flowershop.fe.enums.OrderStatus;
+
 import java.math.BigDecimal;
-import java.util.List;
+import java.util.Date;
 
 public class OrderDto {
 
     private Long id;
-    private User user;
-    private List<Flowers> flowers;
+    private OrderStatus orderStatus;
+    private Long user_id;
+    private OrderDataDto orderDataDto;
     private BigDecimal value;
-
-    OrderDto adapter(Order order)
-    {
-        this.id = order.getId();
-        //this.user = order.getUser();
-        //this.flowers = order.getFlowers();
-        this.value = order.getValue();
-        return this;
-    }
+    private Date openData;
+    private Date closeData;
 
     public Long getId() {
         return id;
@@ -30,20 +23,20 @@ public class OrderDto {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public OrderStatus getOrderStatus() {
+        return orderStatus;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
     }
 
-    public List<Flowers> getFlowers() {
-        return flowers;
+    public Long getUser_id() {
+        return user_id;
     }
 
-    public void setFlowers(List<Flowers> flowers) {
-        this.flowers = flowers;
+    public void setUser_id(Long user_id) {
+        this.user_id = user_id;
     }
 
     public BigDecimal getValue() {
@@ -52,5 +45,29 @@ public class OrderDto {
 
     public void setValue(BigDecimal value) {
         this.value = value;
+    }
+
+    public Date getOpenData() {
+        return openData;
+    }
+
+    public void setOpenData(Date openData) {
+        this.openData = openData;
+    }
+
+    public Date getCloseData() {
+        return closeData;
+    }
+
+    public void setCloseData(Date closeData) {
+        this.closeData = closeData;
+    }
+
+    public OrderDataDto getOrderDataDto() {
+        return orderDataDto;
+    }
+
+    public void setOrderDataDto(OrderDataDto orderDataDto) {
+        this.orderDataDto = orderDataDto;
     }
 }

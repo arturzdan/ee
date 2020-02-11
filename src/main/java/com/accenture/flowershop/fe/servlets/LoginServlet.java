@@ -2,6 +2,7 @@ package com.accenture.flowershop.fe.servlets;
 
 import com.accenture.flowershop.be.business.user.UserBusiness;
 import com.accenture.flowershop.be.entity.user.User;
+import com.accenture.flowershop.fe.dto.OrderDataDto;
 import com.accenture.flowershop.fe.dto.UserDto;
 import com.accenture.flowershop.fe.enums.UserType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 @Service
-@WebServlet(urlPatterns = "/login")
+@WebServlet(urlPatterns = "/loginServlet")
 public class LoginServlet extends HttpServlet {
 
     @Autowired
@@ -48,9 +49,11 @@ public class LoginServlet extends HttpServlet {
             if(userType.toString().equals(user.getType())) {
                 UserDto userDto = new UserDto();
                 userDto.adapter(user);
+
                 HttpSession session = request.getSession();
-                session.setAttribute("userDto",userDto);
-                response.sendRedirect("homeUser");
+                session.setAttribute("orderDataDto", new OrderDataDto());
+                session.setAttribute("userDto", userDto);
+                response.sendRedirect("userServlet");
 
             }else
                 response.sendRedirect("homeAdmin");

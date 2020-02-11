@@ -38,7 +38,7 @@ public class FlowersAccessImpl implements FlowersAccess {
     @Override
     public Flowers getFlowers(Long id) {
         TypedQuery<Flowers> query;
-        query = entity.createQuery("select e from tb_flowers e where e.ID =:ID", Flowers.class);
+        query = entity.createQuery("SELECT e FROM Flowers e WHERE e.id =:ID", Flowers.class);
         query.setParameter("ID", id);
         return query.getSingleResult();
     }

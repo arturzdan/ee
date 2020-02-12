@@ -17,9 +17,13 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = "/productServlet")
 public class ProductServlet extends HttpServlet {
-
     @Autowired
     private FlowersBusiness flowersBusiness;
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,12 +36,7 @@ public class ProductServlet extends HttpServlet {
         Long idFlower = Long.parseLong(id);
         Flowers flowers = flowersBusiness.getFlowers(idFlower);
         FlowerDto flowerDto = Adapter.FlowersToDto(flowers);
-        req.setAttribute("flowers",flowerDto);
+        req.getSession().setAttribute("flowerDto",flowerDto);
         req.getRequestDispatcher("/product.jsp").forward(req, resp);
-    }
-
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
     }
 }

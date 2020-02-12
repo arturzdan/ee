@@ -20,13 +20,17 @@ import java.util.List;
 
 @WebServlet(urlPatterns = "/searchServlet")
 public class SearchServlet extends HttpServlet {
-
     @Autowired
     FlowersBusiness flowersBusiness;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void init(ServletConfig config) throws ServletException {
+        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
+    }
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doGet(req, resp);
     }
 
     @Override
@@ -36,16 +40,9 @@ public class SearchServlet extends HttpServlet {
         String name = req.getParameter("search");
         List<Flowers> flowersList = flowersBusiness.getAllFlowers(name, min, max);
         List<FlowerDto> flowersDtoList = new ArrayList<>();
-        for (Flowers flowers : flowersList
-        ) {
+        for (Flowers flowers : flowersList)
             flowersDtoList.add(Adapter.FlowersToDto(flowers));
-        }
         req.setAttribute("flowersList", flowersDtoList);
         req.getRequestDispatcher("/homeUser.jsp").forward(req, resp);
-    }
-
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
     }
 }

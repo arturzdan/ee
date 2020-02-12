@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
 <%@ page import="com.accenture.flowershop.fe.dto.FlowerDto"%>
+<%@ page import="com.accenture.flowershop.fe.dto.OrderDataDto"%>
 <%@ page import="java.util.List" %>
 <%@ page import="com.accenture.flowershop.fe.dto.UserDto"%>
 <html>
@@ -22,10 +23,9 @@
         <button type="submit" name="btn">Go</button>
     </form>
         <p>
-        <%
-        UserDto user = (UserDto)session.getAttribute("userDto");%>
-        Hello, <%=user.getLogin()
-        %>.
+        <%UserDto user = (UserDto)session.getAttribute("userDto");%>
+        Hello, <%=user.getLogin()%>.
+        Basket of orders (<%=((List<OrderDataDto>)session.getAttribute("orderList")).size()%>).
         <form action="productServlet" method="post">
             <table border="1" width="50%" cellpadding="1">
                 <tr>
@@ -34,11 +34,8 @@
                     <th><b>VALUE</b></th>
                     <th><b></b></th>
                 </tr>
-        <%
-            List<FlowerDto> flowerDtoList = (List<FlowerDto>)request.getAttribute("flowersList");
-                for (FlowerDto it: flowerDtoList) {
-        %>
-
+        <%List<FlowerDto> flowerDtoList = (List<FlowerDto>)request.getAttribute("flowersList");
+                for (FlowerDto it: flowerDtoList){%>
               <tr>
                 <td><%=it.getName()%></a></td>
                 <td><%=it.getCount()%></td>

@@ -18,9 +18,13 @@ import java.math.BigDecimal;
 
 @WebServlet(urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
-
     @Autowired
     private UserBusiness userBusiness;
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doGet(req, resp);
+    }
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -44,11 +48,5 @@ public class RegisterServlet extends HttpServlet {
         user.setPassword(req.getParameter("password"));
         userBusiness.register(user);
         out.println("Registration is complete!" );
-
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
     }
 }

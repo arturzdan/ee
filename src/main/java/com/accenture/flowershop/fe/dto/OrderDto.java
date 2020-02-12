@@ -10,7 +10,7 @@ public class OrderDto {
     private Long id;
     private OrderStatus orderStatus;
     private Long user_id;
-    private OrderDataDto orderDataDto;
+    private CartDto cartDto;
     private BigDecimal value;
     private Date openData;
     private Date closeData;
@@ -63,11 +63,11 @@ public class OrderDto {
         this.closeData = closeData;
     }
 
-    public OrderDataDto getOrderDataDto() {
-        return orderDataDto;
+    public CartDto getCartDto() {
+        return cartDto;
     }
 
-    public void setOrderDataDto(OrderDataDto orderDataDto) {
-        this.orderDataDto = orderDataDto;
+    public void setCartDto(CartDto cartDto) {
+        this.cartDto = cartDto;
     }
 }

@@ -16,17 +16,14 @@ import java.io.IOException;
 @Service
 @WebServlet(urlPatterns = "/homeAdmin")
 public class HomeAdminServlet extends HttpServlet {
-
     @Override
     public void init(ServletConfig config) throws ServletException {
-        super.init(config);
         SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("/homeAdmin.jsp").forward(req, resp);
-
     }
 
     @Override

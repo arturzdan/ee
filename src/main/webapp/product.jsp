@@ -12,10 +12,19 @@
    </style>
     <body>
         <p>
+        <form action="addCartServlet" method="post">
         <% UserDto user = (UserDto)session.getAttribute("userDto");%>
         Hello, <%=user.getLogin()%>.
-        <% FlowerDto flower = (FlowerDto)request.getAttribute("flowers");%>
-        <%=flower.getName()%>.
+        <p>
+        <% FlowerDto flower = (FlowerDto)session.getAttribute("flowerDto");%>
+        Name flower: <%=flower.getName()%>,
+        <%int x = flower.getCount();%>
+        count: <%=x%>
+        <p>
+        Enter count <input type="number" name="count" min="0" max=<%=x%> value="0" step="1">
+        <p>
+        <button type="submit" name="button" value="button1">Buy</button>
+        </form>
 </body>
 </html>
 

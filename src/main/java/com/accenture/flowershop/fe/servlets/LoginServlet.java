@@ -2,7 +2,7 @@ package com.accenture.flowershop.fe.servlets;
 
 import com.accenture.flowershop.be.business.user.UserBusiness;
 import com.accenture.flowershop.be.entity.user.User;
-import com.accenture.flowershop.fe.dto.OrderDataDto;
+import com.accenture.flowershop.fe.dto.CartDto;
 import com.accenture.flowershop.fe.dto.UserDto;
 import com.accenture.flowershop.fe.enums.UserType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,28 +18,30 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 @WebServlet(urlPatterns = "/loginServlet")
 public class LoginServlet extends HttpServlet {
-
     @Autowired
     private UserBusiness userBusiness;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
-        super.init(config);
         SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
+    }
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        super.doGet(request, response);
     }
 
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String name = request.getParameter("name");
-        String pass = request.getParameter("pass");
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String name = req.getParameter("name");
+        String pass = req.getParameter("pass");
 
-        PrintWriter out = response.getWriter();
+        PrintWriter out = resp.getWriter();
 
         User user = userBusiness.login(name, pass);
         if ((user == null)) {
@@ -50,21 +52,15 @@ public class LoginServlet extends HttpServlet {
                 UserDto userDto = new UserDto();
                 userDto.adapter(user);
 
-                HttpSession session = request.getSession();
-                session.setAttribute("orderDataDto", new OrderDataDto());
+                HttpSession session = req.getSession();
+                List<CartDto> orderList = new ArrayList<>();
+                session.setAttribute("orderList", orderList);
                 session.setAttribute("userDto", userDto);
-                response.sendRedirect("userServlet");
-
+                req.getRequestDispatcher("/userServlet").forward(req, resp);
             }else
-                response.sendRedirect("homeAdmin");
+                resp.sendRedirect("homeAdmin");
         }
 
-    }
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
-        super.doGet(request, response);
     }
 
 }

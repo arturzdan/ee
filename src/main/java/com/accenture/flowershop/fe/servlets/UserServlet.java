@@ -1,5 +1,6 @@
 package com.accenture.flowershop.fe.servlets;
 
+import com.accenture.flowershop.be.Adapter;
 import com.accenture.flowershop.be.business.flower.FlowersBusiness;
 import com.accenture.flowershop.be.entity.flower.Flowers;
 import com.accenture.flowershop.fe.dto.FlowerDto;
@@ -39,8 +40,7 @@ public class UserServlet extends HttpServlet {
         List<FlowerDto> flowersDtoList = new ArrayList<>();
         for (Flowers flowers : flowersList
         ) {
-            FlowerDto flowerDto = new FlowerDto();
-            flowersDtoList.add(flowerDto.adapter(flowers));
+            flowersDtoList.add(Adapter.FlowersToDto(flowers));
         }
         req.setAttribute("flowersList", flowersDtoList);
         req.getRequestDispatcher("/homeUser.jsp").forward(req, resp);

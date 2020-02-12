@@ -9,12 +9,7 @@ public class FlowerDto {
     private int count;
     private BigDecimal value;
 
-    public FlowerDto adapter(Flowers flower) {
-        this.id = flower.getId();
-        this.name = flower.getName();
-        this.count = flower.getCount();
-        this.value = flower.getValue();
-        return this;
+    public FlowerDto() {
     }
 
     public Long getId() {

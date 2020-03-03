@@ -3,7 +3,10 @@ package com.accenture.flowershop.be;
 import com.accenture.flowershop.be.entity.flower.Flowers;
 import com.accenture.flowershop.fe.dto.FlowerDto;
 
-public class Adapter {
+import java.util.ArrayList;
+import java.util.List;
+
+public class AdapterFlower {
 
     public static Flowers DtoToFlowers(FlowerDto flowerDto) {
         if (flowerDto == null)
@@ -27,4 +30,17 @@ public class Adapter {
         return flowerDto;
     }
 
+    public static List<Flowers> dtoToFlowers(List<FlowerDto> dtoList) {
+        List<Flowers> flowersList = new ArrayList<>();
+        for (FlowerDto it : dtoList)
+            flowersList.add(AdapterFlower.DtoToFlowers(it));
+        return flowersList;
+    }
+
+    public static List<FlowerDto> flowersToDto(List<Flowers> flowersList) {
+        List<FlowerDto> dtoList = new ArrayList<>();
+        for (Flowers it : flowersList)
+            dtoList.add(AdapterFlower.FlowersToDto(it));
+        return dtoList;
+    }
 }

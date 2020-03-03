@@ -1,6 +1,6 @@
 package com.accenture.flowershop.fe.servlets;
 
-import com.accenture.flowershop.be.Adapter;
+import com.accenture.flowershop.be.AdapterFlower;
 import com.accenture.flowershop.be.business.flower.FlowersBusiness;
 import com.accenture.flowershop.be.entity.flower.Flowers;
 import com.accenture.flowershop.fe.dto.FlowerDto;
@@ -35,7 +35,7 @@ public class ProductServlet extends HttpServlet {
         String id =req.getParameter("idFlower");
         Long idFlower = Long.parseLong(id);
         Flowers flowers = flowersBusiness.getFlowers(idFlower);
-        FlowerDto flowerDto = Adapter.FlowersToDto(flowers);
+        FlowerDto flowerDto = AdapterFlower.FlowersToDto(flowers);
         req.getSession().setAttribute("flowerDto",flowerDto);
         req.getRequestDispatcher("/product.jsp").forward(req, resp);
     }

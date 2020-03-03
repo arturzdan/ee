@@ -1,4 +1,4 @@
-package com.accenture.flowershop.fe.servlets;
+package com.accenture.flowershop.fe.servlets.Order;
 
 import com.accenture.flowershop.be.business.flower.FlowersBusiness;
 import com.accenture.flowershop.fe.dto.FlowerDto;
@@ -38,10 +38,10 @@ public class AddCartServlet extends HttpServlet {
         HttpSession session = req.getSession();
         FlowerDto flowerDto = (FlowerDto)session.getAttribute("flowerDto");
         int count = Integer.parseInt(req.getParameter("count"));
-        List<CartDto> cartList = (List<CartDto>)session.getAttribute("orderList");
+        List<CartDto> cartList = (List<CartDto>)session.getAttribute("cartList");
         cartList = addFlowerToOrder(flowerDto, count, cartList);
         session.setAttribute("cartList", cartList);
-        req.getRequestDispatcher("/userServlet").forward(req, resp);
+        req.getRequestDispatcher("/catalogServlet").forward(req, resp);
     }
 
     private List<CartDto> addFlowerToOrder(FlowerDto flower, int count, List<CartDto> cartList) {

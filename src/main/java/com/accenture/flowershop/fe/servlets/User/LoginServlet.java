@@ -31,6 +31,7 @@ public class LoginServlet extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
     }
+
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         super.doGet(request, response);
@@ -45,19 +46,19 @@ public class LoginServlet extends HttpServlet {
 
         User user = userBusiness.login(name, pass);
         if ((user == null)) {
-            out.println("Invalid username or password!" );
+            out.println("Invalid username or password!");
         } else {
             UserType userType = UserType.USER;
-            if(userType.toString().equals(user.getType())) {
+            if (userType.toString().equals(user.getType())) {
                 UserDto userDto = new UserDto();
                 userDto.adapter(user);
 
                 HttpSession session = req.getSession();
                 List<CartDto> orderList = new ArrayList<>();
-                session.setAttribute("orderList", orderList);
+                session.setAttribute("cartList", orderList);
                 session.setAttribute("userDto", userDto);
-                req.getRequestDispatcher("/userServlet").forward(req, resp);
-            }else
+                req.getRequestDispatcher("/catalogServlet").forward(req, resp);
+            } else
                 resp.sendRedirect("homeAdmin");
         }
 

@@ -1,6 +1,6 @@
 package com.accenture.flowershop.fe.servlets;
 
-import com.accenture.flowershop.be.Adapter;
+import com.accenture.flowershop.be.AdapterFlower;
 import com.accenture.flowershop.be.business.flower.FlowersBusiness;
 import com.accenture.flowershop.be.entity.flower.Flowers;
 import com.accenture.flowershop.fe.dto.FlowerDto;
@@ -19,8 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@WebServlet(urlPatterns = "/userServlet")
-public class UserServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/catalogServlet")
+public class CatalogServlet extends HttpServlet {
     @Autowired
     private FlowersBusiness flowersBusiness;
 
@@ -39,8 +39,8 @@ public class UserServlet extends HttpServlet {
         List<Flowers> flowersList = flowersBusiness.getAllFlowers();
         List<FlowerDto> flowersDtoList = new ArrayList<>();
         for (Flowers flowers : flowersList)
-            flowersDtoList.add(Adapter.FlowersToDto(flowers));
+            flowersDtoList.add(AdapterFlower.FlowersToDto(flowers));
         req.setAttribute("flowersList", flowersDtoList);
-        req.getRequestDispatcher("/homeUser.jsp").forward(req, resp);
+        req.getRequestDispatcher("/catalog.jsp").forward(req, resp);
     }
 }

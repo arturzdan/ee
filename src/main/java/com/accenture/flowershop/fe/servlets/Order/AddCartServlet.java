@@ -3,6 +3,7 @@ package com.accenture.flowershop.fe.servlets.Order;
 import com.accenture.flowershop.be.business.flower.FlowersBusiness;
 import com.accenture.flowershop.fe.dto.FlowerDto;
 import com.accenture.flowershop.fe.dto.CartDto;
+import com.accenture.flowershop.fe.dto.OrderDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
@@ -53,12 +54,12 @@ public class AddCartServlet extends HttpServlet {
                 cartDto = it;
         }
         if (cartDto == null)
-            cartList.add(new CartDto(flower, count));
+            cartList.add(new CartDto(new OrderDto(),flower, count));
         else
         {
-            int countFlower = cartDto.getCountFlower();
+            int countFlower = cartDto.getCount();
             countFlower+=count;
-            cartDto.setCountFlower(countFlower);
+            cartDto.setCount(countFlower);
         }
         return cartList;
     }

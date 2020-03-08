@@ -40,12 +40,12 @@ public class AddCartServlet extends HttpServlet {
         FlowerDto flowerDto = (FlowerDto)session.getAttribute("flowerDto");
         int count = Integer.parseInt(req.getParameter("count"));
         List<CartDto> cartList = (List<CartDto>)session.getAttribute("cartList");
-        cartList = addFlowerToOrder(flowerDto, count, cartList);
+        cartList = addFlowerToCard(flowerDto, count, cartList);
         session.setAttribute("cartList", cartList);
         req.getRequestDispatcher("/catalogServlet").forward(req, resp);
     }
 
-    private List<CartDto> addFlowerToOrder(FlowerDto flower, int count, List<CartDto> cartList) {
+    private List<CartDto> addFlowerToCard(FlowerDto flower, int count, List<CartDto> cartList) {
         Long id_1 = flower.getId();
         CartDto cartDto = null;
         for (CartDto it : cartList) {
@@ -54,12 +54,11 @@ public class AddCartServlet extends HttpServlet {
                 cartDto = it;
         }
         if (cartDto == null)
-            cartList.add(new CartDto(new OrderDto(),flower, count));
-        else
-        {
-            int countFlower = cartDto.getCount();
-            countFlower+=count;
-            cartDto.setCount(countFlower);
+            cartList.add(new CartDto(flower, count));
+        else {
+            int countFlower = cartDto.getCountFlower();
+            countFlower += count;
+            cartDto.setCountFlower(countFlower);
         }
         return cartList;
     }

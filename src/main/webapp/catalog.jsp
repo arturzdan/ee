@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
 <%@ page import="com.accenture.flowershop.fe.dto.FlowerDto"%>
-<%@ page import="com.accenture.flowershop.fe.dto.CartDto"%>
+<%@ page import="com.accenture.flowershop.fe.dto.OrderItemDto"%>
 <%@ page import="com.accenture.flowershop.fe.dto.UserDto"%>
 <%@ page import="java.util.List" %>
 <html>
@@ -28,7 +28,7 @@
         <p>
         <%UserDto user = (UserDto)session.getAttribute("userDto");%>
         Hello, <%=user.getLogin()%>.
-        Basket of orders (<%=((List<CartDto>)session.getAttribute("cartList")).size()%>).
+        Basket of orders (<%=((List<OrderItemDto>)session.getAttribute("cartList")).size()%>).
         <form action="productServlet" method="post">
             <table border="1" width="50%" cellpadding="1">
                 <tr>

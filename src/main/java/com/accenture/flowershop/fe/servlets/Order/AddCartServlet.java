@@ -1,7 +1,9 @@
 package com.accenture.flowershop.fe.servlets.Order;
 
 import com.accenture.flowershop.be.business.flower.FlowersBusiness;
+import com.accenture.flowershop.be.entity.order.Order;
 import com.accenture.flowershop.fe.dto.FlowerDto;
+import com.accenture.flowershop.fe.dto.OrderDto;
 import com.accenture.flowershop.fe.dto.OrderItemDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,26 +41,22 @@ public class AddCartServlet extends HttpServlet {
         FlowerDto flowerDto = (FlowerDto)session.getAttribute("flowerDto");
         int count = Integer.parseInt(req.getParameter("count"));
         List<OrderItemDto> cartList = (List<OrderItemDto>)session.getAttribute("cartList");
-        //cartList = addFlowerToCard(flowerDto, count, cartList);
-        //session.setAttribute("cartList", cartList);
-        //req.getRequestDispatcher("/catalogServlet").forward(req, resp);
+        cartList = addFlowerToCard(flowerDto, count, cartList);
+        session.setAttribute("cartList", cartList);
+        req.getRequestDispatcher("/catalogServlet").forward(req, resp);
     }
-/*
+
     private List<OrderItemDto> addFlowerToCard(FlowerDto flower, int count, List<OrderItemDto> cartList) {
-        Long id_1 = flower.getId();
-        OrderItemDto cartDto = null;
+        OrderItemDto orderItemDto = null;
         for (OrderItemDto it : cartList) {
-            Long id_2 = it.getFlower().getId();
-            if (id_1.equals(id_2))
-                cartDto = it;
+            if (it.equals(flower))
+                orderItemDto = it;
         }
-        if (cartDto == null)
-            cartList.add(new OrderItemDto(flower, count));
-        else {
-            int countFlower = cartDto.getCountFlower();
-            countFlower += count;
-            cartDto.setCountFlower(countFlower);
-        }
+
+        if (orderItemDto == null)
+            cartList.add(new OrderItemDto(flower, new OrderDto(), count));
+        else
+            orderItemDto.setCount(orderItemDto.getCount() + count);
         return cartList;
-    }*/
+    }
 }

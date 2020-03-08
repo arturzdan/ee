@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
 <%@ page import="com.accenture.flowershop.fe.dto.UserDto"%>
-<%@ page import="com.accenture.flowershop.fe.dto.CartDto"%>
+<%@ page import="com.accenture.flowershop.fe.dto.OrderItemDto"%>
 <%@ page import="java.util.List" %>
 <html>
 <head>
@@ -27,11 +27,11 @@
                     <th><b>NAME</b></th>
                     <th><b>COUNT</b></th>
                 </tr>
-        <%List<CartDto> cartList = (List<CartDto>)session.getAttribute("cartList");
-                for (CartDto it: cartList){%>
+        <%List<OrderItemDto> cartList = (List<OrderItemDto>)session.getAttribute("cartList");
+                for (OrderItemDto it: cartList){%>
               <tr>
-                <td><%=it.getFlower().getName()%></a></td>
-                <td><input type="number" name="count" min="0" max="1000" value=<%=it.getCountFlower()%> step="1"></td>
+                <td><%=it.getFlowerDto().getName()%></a></td>
+                <td><input type="number" name="count" min="0" max="1000" value=<%=it.getCount()%> step="1"></td>
               </tr>
         <%}%>
         </table>

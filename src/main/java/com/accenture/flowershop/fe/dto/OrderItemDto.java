@@ -1,21 +1,17 @@
 package com.accenture.flowershop.fe.dto;
 
-import com.accenture.flowershop.be.entity.flower.Flower;
-import com.accenture.flowershop.be.entity.order.Order;
-
 public class OrderItemDto {
     private Long id;
-    private Flower flower;
-    private Order order;
+    private FlowerDto flowerDto;
+    private OrderDto orderDto;
     private int count;
 
     public OrderItemDto() {
     }
 
-    public OrderItemDto(Long id, Flower flower, Order order, int count) {
-        this.id = id;
-        this.flower = flower;
-        this.order = order;
+    public OrderItemDto(FlowerDto flower, OrderDto order, int count) {
+        this.flowerDto = flower;
+        this.orderDto = order;
         this.count = count;
     }
 
@@ -27,20 +23,20 @@ public class OrderItemDto {
         this.id = id;
     }
 
-    public Flower getFlower() {
-        return flower;
+    public FlowerDto getFlowerDto() {
+        return flowerDto;
     }
 
-    public void setFlower(Flower flower) {
-        this.flower = flower;
+    public void setFlowerDto(FlowerDto flowerDto) {
+        this.flowerDto = flowerDto;
     }
 
-    public Order getOrder() {
-        return order;
+    public OrderDto getOrderDto() {
+        return orderDto;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrderDto(OrderDto orderDto) {
+        this.orderDto = orderDto;
     }
 
     public int getCount() {

@@ -1,5 +1,6 @@
 package com.accenture.flowershop.fe.dto;
 
+import com.accenture.flowershop.be.entity.order.Order;
 import com.accenture.flowershop.be.entity.user.User;
 import com.accenture.flowershop.fe.enums.OrderStatus;
 
@@ -93,6 +94,13 @@ public class OrderDto {
 
     public void setValue(BigDecimal value) {
         this.value = value;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        OrderDto orderDto = (OrderDto)obj;
+        Long id = orderDto.getId();
+        return id.equals(this.getId());
     }
 }
 

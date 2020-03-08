@@ -2,8 +2,7 @@ package com.accenture.flowershop.fe.servlets.Order;
 
 import com.accenture.flowershop.be.business.flower.FlowersBusiness;
 import com.accenture.flowershop.fe.dto.FlowerDto;
-import com.accenture.flowershop.fe.dto.CartDto;
-import com.accenture.flowershop.fe.dto.OrderDto;
+import com.accenture.flowershop.fe.dto.OrderItemDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
@@ -39,27 +38,27 @@ public class AddCartServlet extends HttpServlet {
         HttpSession session = req.getSession();
         FlowerDto flowerDto = (FlowerDto)session.getAttribute("flowerDto");
         int count = Integer.parseInt(req.getParameter("count"));
-        List<CartDto> cartList = (List<CartDto>)session.getAttribute("cartList");
-        cartList = addFlowerToCard(flowerDto, count, cartList);
-        session.setAttribute("cartList", cartList);
-        req.getRequestDispatcher("/catalogServlet").forward(req, resp);
+        List<OrderItemDto> cartList = (List<OrderItemDto>)session.getAttribute("cartList");
+        //cartList = addFlowerToCard(flowerDto, count, cartList);
+        //session.setAttribute("cartList", cartList);
+        //req.getRequestDispatcher("/catalogServlet").forward(req, resp);
     }
-
-    private List<CartDto> addFlowerToCard(FlowerDto flower, int count, List<CartDto> cartList) {
+/*
+    private List<OrderItemDto> addFlowerToCard(FlowerDto flower, int count, List<OrderItemDto> cartList) {
         Long id_1 = flower.getId();
-        CartDto cartDto = null;
-        for (CartDto it : cartList) {
+        OrderItemDto cartDto = null;
+        for (OrderItemDto it : cartList) {
             Long id_2 = it.getFlower().getId();
             if (id_1.equals(id_2))
                 cartDto = it;
         }
         if (cartDto == null)
-            cartList.add(new CartDto(flower, count));
+            cartList.add(new OrderItemDto(flower, count));
         else {
             int countFlower = cartDto.getCountFlower();
             countFlower += count;
             cartDto.setCountFlower(countFlower);
         }
         return cartList;
-    }
+    }*/
 }

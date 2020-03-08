@@ -26,14 +26,6 @@ public class User {
     @Column(name = "MIDDLE_NAME")
     private String middleName;
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     @Column(name = "ADDRESS")
     private String address;
 
@@ -92,6 +84,14 @@ public class User {
 
     public void setMiddleName(String middleName) {
         this.middleName = middleName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getMobile() {

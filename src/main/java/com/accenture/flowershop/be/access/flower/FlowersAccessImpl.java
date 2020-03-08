@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
-import com.accenture.flowershop.be.entity.flower.Flowers;
+import com.accenture.flowershop.be.entity.flower.Flower;
 import java.util.List;
 
 @Transactional
@@ -18,34 +18,34 @@ public class FlowersAccessImpl implements FlowersAccess {
     private EntityManager entity;
 
     @Override
-    public void addFlowers(Flowers flowers) {
+    public void addFlowers(Flower flowers) {
         entity.persist(flowers);
         entity.flush();
     }
 
     @Override
-    public void removeFlowers(Flowers flowers) {
+    public void removeFlowers(Flower flowers) {
         entity.remove(flowers);
         entity.flush();
     }
 
     @Override
-    public void updateFlower(Flowers flowers) {
+    public void updateFlower(Flower flowers) {
     entity.merge(flowers);
     entity.flush();
     }
 
     @Override
-    public Flowers getFlowers(Long id) {
-        TypedQuery<Flowers> query;
-        query = entity.createQuery("SELECT e FROM Flowers e WHERE e.id =:ID", Flowers.class);
+    public Flower getFlowers(Long id) {
+        TypedQuery<Flower> query;
+        query = entity.createQuery("SELECT e FROM Flowers e WHERE e.id =:ID", Flower.class);
         query.setParameter("ID", id);
         return query.getSingleResult();
     }
 
     @Override
-    public List<Flowers> getAllFlowers() {
-        List<Flowers> flowersList =  entity.createQuery("SELECT e FROM Flowers e").getResultList();
+    public List<Flower> getAllFlowers() {
+        List<Flower> flowersList =  entity.createQuery("SELECT e FROM Flowers e").getResultList();
     return flowersList;
     }
 }

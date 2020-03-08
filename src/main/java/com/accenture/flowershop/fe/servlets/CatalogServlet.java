@@ -2,7 +2,7 @@ package com.accenture.flowershop.fe.servlets;
 
 import com.accenture.flowershop.be.AdapterFlower;
 import com.accenture.flowershop.be.business.flower.FlowersBusiness;
-import com.accenture.flowershop.be.entity.flower.Flowers;
+import com.accenture.flowershop.be.entity.flower.Flower;
 import com.accenture.flowershop.fe.dto.FlowerDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,9 +36,9 @@ public class CatalogServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Flowers> flowersList = flowersBusiness.getAllFlowers();
+        List<Flower> flowersList = flowersBusiness.getAllFlowers();
         List<FlowerDto> flowersDtoList = new ArrayList<>();
-        for (Flowers flowers : flowersList)
+        for (Flower flowers : flowersList)
             flowersDtoList.add(AdapterFlower.FlowersToDto(flowers));
         req.setAttribute("flowersList", flowersDtoList);
         req.getRequestDispatcher("/catalog.jsp").forward(req, resp);

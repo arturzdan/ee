@@ -2,7 +2,7 @@ package com.accenture.flowershop.fe.servlets;
 
 import com.accenture.flowershop.be.AdapterFlower;
 import com.accenture.flowershop.be.business.flower.FlowersBusiness;
-import com.accenture.flowershop.be.entity.flower.Flowers;
+import com.accenture.flowershop.be.entity.flower.Flower;
 import com.accenture.flowershop.fe.dto.FlowerDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
@@ -38,9 +38,9 @@ public class SearchServlet extends HttpServlet {
         BigDecimal min = new BigDecimal(req.getParameter("min"));
         BigDecimal max = new BigDecimal(req.getParameter("max"));
         String name = req.getParameter("search");
-        List<Flowers> flowersList = flowersBusiness.getAllFlowers(name, min, max);
+        List<Flower> flowersList = flowersBusiness.getAllFlowers(name, min, max);
         List<FlowerDto> flowersDtoList = new ArrayList<>();
-        for (Flowers flowers : flowersList)
+        for (Flower flowers : flowersList)
             flowersDtoList.add(AdapterFlower.FlowersToDto(flowers));
         req.setAttribute("flowersList", flowersDtoList);
         req.getRequestDispatcher("/catalog.jsp").forward(req, resp);

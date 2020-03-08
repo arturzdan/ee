@@ -2,7 +2,7 @@ package com.accenture.flowershop.fe.servlets;
 
 import com.accenture.flowershop.be.business.user.UserBusiness;
 import com.accenture.flowershop.be.entity.user.User;
-import com.accenture.flowershop.fe.dto.CartDto;
+import com.accenture.flowershop.fe.dto.OrderItemDto;
 import com.accenture.flowershop.fe.dto.UserDto;
 import com.accenture.flowershop.fe.enums.UserType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +54,7 @@ public class LoginServlet extends HttpServlet {
                 userDto.adapter(user);
 
                 HttpSession session = req.getSession();
-                List<CartDto> orderList = new ArrayList<>();
+                List<OrderItemDto> orderList = new ArrayList<>();
                 session.setAttribute("cartList", orderList);
                 session.setAttribute("userDto", userDto);
                 req.getRequestDispatcher("/catalogServlet").forward(req, resp);

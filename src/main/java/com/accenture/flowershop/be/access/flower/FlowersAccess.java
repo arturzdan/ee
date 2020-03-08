@@ -1,17 +1,17 @@
 package com.accenture.flowershop.be.access.flower;
 
-import com.accenture.flowershop.be.entity.flower.Flowers;
+import com.accenture.flowershop.be.entity.flower.Flower;
 import java.util.List;
 
 public interface FlowersAccess {
 
-    void addFlowers(Flowers flowers);
+    void addFlowers(Flower flowers);
 
-    void removeFlowers(Flowers flowers);
+    void removeFlowers(Flower flowers);
 
-    void updateFlower(Flowers flowers);
+    void updateFlower(Flower flowers);
 
-    Flowers getFlowers(Long id);
+    Flower getFlowers(Long id);
 
-    List<Flowers> getAllFlowers();
+    List<Flower> getAllFlowers();
 }

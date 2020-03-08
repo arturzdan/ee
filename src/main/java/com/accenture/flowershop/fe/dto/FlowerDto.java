@@ -1,6 +1,5 @@
 package com.accenture.flowershop.fe.dto;
 
-import com.accenture.flowershop.be.entity.flower.Flowers;
 import java.math.BigDecimal;
 
 public class FlowerDto {
